@@ -1,4 +1,4 @@
-package com.asr.bookstore
+package com.asr.bookstore.Screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -33,10 +33,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.asr.bookstore.ScreenRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     var presses by remember { mutableIntStateOf(0) }
     var searchQuery by remember { mutableStateOf("") }
     var showTextField by remember { mutableStateOf(false) }
@@ -65,8 +67,7 @@ fun HomeScreen() {
                     OutlinedButton(onClick = { /*TODO*/ }) {
                         Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
                         if (showTextField) {
-                            OutlinedTextField(
-                                value = textFieldValue,
+                            OutlinedTextField(value = textFieldValue,
                                 onValueChange = { textFieldValue = it },
                                 label = { Text("Enter Text") })
                         }
@@ -90,14 +91,14 @@ fun HomeScreen() {
                         modifier = Modifier.size(32.dp)
                     )
                 }
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = { navController.navigate(ScreenRoutes.Account.routes) }) {
                     Icon(
                         imageVector = Icons.Default.AccountCircle,
                         contentDescription = "Account",
                         modifier = Modifier.size(32.dp)
                     )
                 }
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = { navController.navigate(ScreenRoutes.Notifications.routes) }) {
                     Icon(
                         imageVector = Icons.Default.Notifications,
                         contentDescription = "Notification",
