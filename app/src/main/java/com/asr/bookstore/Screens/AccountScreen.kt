@@ -4,8 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -39,13 +42,54 @@ fun AccountScreen(navController: NavController) {
                 }
             )
         },
-
-        ) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) { innerPadding ->
+        Row(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxWidth(), // Ensure the Row uses full width
+            horizontalArrangement = Arrangement.SpaceAround, // Distribute space around elements
         ) {
-            Text("Check Your Account")
+            Column(modifier = Modifier.padding(8.dp)) {
+                FilledTonalButton(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .width(150.dp)
+                        .height(50.dp)
+                ) {
+                    Text("Your Orders")
+                }
+                FilledTonalButton(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .width(150.dp)
+                        .height(50.dp)
+                ) {
+                    Text("Your Account")
+                }
+            }
+            Column(modifier = Modifier.padding(8.dp)) {
+                FilledTonalButton(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .width(150.dp)
+                        .height(50.dp)
+                ) {
+                    Text("Buy Again")
+                }
+                FilledTonalButton(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .width(150.dp)
+                        .height(50.dp)
+                ) {
+                    Text("Wish Lists")
+                }
+            }
         }
+
     }
 }
